@@ -7,25 +7,20 @@ from django.contrib.auth.models import User
 from django.views.decorators.http import require_POST
 
 def content(request):
-    try:
-        current = []
-        for field in User._meta.fields:
-            if field.name == 'password':
-                continue
+    current = []
+    for field in User._meta.fields:
+        if field.name == 'password':
+            continue
 
-            current.append(
-                (field.attname, getattr(request.user, field.attname))
-            )
+        current.append(
+            (field.attname, getattr(request.user, field.attname))
+        )
 
-        return render_to_response('debug_toolbar_user_panel/content.html', {
-            'next': request.GET.get('next'),
-            'users': User.objects.order_by('-last_login')[:20],
-            'current': current,
-        }, context_instance=RequestContext(request))
-    except:
-        import traceback
-        traceback.print_exc()
-        raise
+    return render_to_response('debug_toolbar_user_panel/content.html', {
+        'next': request.GET.get('next'),
+        'users': User.objects.order_by('-last_login')[:20],
+        'current': current,
+    }, context_instance=RequestContext(request))
 
 @require_POST
 def login(request, pk):
