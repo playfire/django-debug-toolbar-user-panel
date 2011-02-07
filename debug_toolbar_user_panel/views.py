@@ -8,13 +8,14 @@ from django.views.decorators.http import require_POST
 
 def content(request):
     current = []
-    for field in User._meta.fields:
-        if field.name == 'password':
-            continue
 
-        current.append(
-            (field.attname, getattr(request.user, field.attname))
-        )
+    if request.user.is_authenticated():
+        for field in User._meta.fields:
+            if field.name == 'password':
+                continue
+            current.append(
+                (field.attname, getattr(request.user, field.attname))
+            )
 
     return render_to_response('debug_toolbar_user_panel/content.html', {
         'next': request.GET.get('next'),
