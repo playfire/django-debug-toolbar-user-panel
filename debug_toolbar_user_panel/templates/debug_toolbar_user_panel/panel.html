@@ -2,6 +2,11 @@
   $('#djDebug .djDebugUserPanel').click(function () {
     var target = $('#djDebugUserPanel div.target');
 
+    // Only load data once
+    if (target.children().length) {
+      return;
+    }
+
     target.load('{% url debug-userpanel %}?next=' + escape(location.href));
   });
 </script>
