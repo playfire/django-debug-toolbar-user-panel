@@ -1,0 +1,29 @@
+<script language="javascript">
+  $('#djDebug .djDebugUserPanel').click(function () {
+    var target = $('#djDebugUserPanel div.target');
+
+    target.load('{% url debug-userpanel %}?next=' + escape(location.href));
+  });
+</script>
+
+<style type="text/css">
+
+#djDebug #djDebugUserPanel button.login
+{
+  border: none;
+  cursor: pointer;
+  background: none;
+}
+
+#djDebug #djDebugUserPanel th
+{
+  text-align: left;
+}
+
+#djDebug #djDebugUserPanel td
+{
+  white-space: nowrap;
+}
+</style>
+
+<div class="target"></div>

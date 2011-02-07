@@ -1,0 +1,26 @@
+<h4>Current user</h4>
+
+{% if request.user.is_authenticated %}
+  <table>
+    <tr>{% for x,y in current %}<th>{{ x }}</th>{% endfor %}</tr>
+    <tr>{% for x,y in current %}<td>{{ y }}</td>{% endfor %}</tr>
+  </table>
+{% else %}
+  <p>Not logged in.</p>
+{% endif %}
+
+<h4>Recent users</h4>
+
+<ul>
+  {% for user in users %}
+  <li>
+    <form method="POST" action="{% url debug-userpanel-login user.pk %}">
+      {% csrf_token %}
+      {% if next %}
+      <input type="hidden" name="next" value="{{ next }}">
+      {% endif %}
+      <button class="login" type="submit">{{ user }}</button>
+    </form>
+  </li>
+  {% endfor %}
+</ul>
