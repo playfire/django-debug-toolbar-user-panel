@@ -19,7 +19,7 @@ def content(request):
 
     return render_to_response('debug_toolbar_user_panel/content.html', {
         'next': request.GET.get('next'),
-        'users': User.objects.order_by('-last_login')[:20],
+        'users': User.objects.order_by('-last_login')[:10],
         'current': current,
     }, context_instance=RequestContext(request))
 
