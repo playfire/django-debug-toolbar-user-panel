@@ -21,7 +21,7 @@ class UserPanel(DebugPanel):
         return _('User')
 
     def nav_subtitle(self):
-        return self.request.user.username
+        return self.request.user
 
     def content(self):
         context = self.context.copy()
