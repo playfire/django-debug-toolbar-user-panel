@@ -4,6 +4,7 @@ from django.contrib import auth
 from django.template import RequestContext
 from django.shortcuts import render_to_response, get_object_or_404
 from django.contrib.auth.models import User
+from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
 
 from .forms import UserForm
@@ -26,6 +27,7 @@ def content(request):
         'current': current,
     }, context_instance=RequestContext(request))
 
+@csrf_exempt
 @require_POST
 def login_form(request):
     form = UserForm(request.POST)
@@ -35,6 +37,7 @@ def login_form(request):
 
     return login(request, **form.get_lookup())
 
+@csrf_exempt
 @require_POST
 def login(request, **kwargs):
     user = get_object_or_404(User, **kwargs)
