@@ -9,11 +9,11 @@ to easily and quickly switch between users.
  * Login as any user from an arbitrary email address, username or user ID.
  * Easily switch between recently logged in users.
 
-The toolbar supports ``django.contrib.auth.models.User`` models that have had
-the `username` field removed.
-
 .. figure::  screenshot.png
    :align:   center
+
+The panel supports ``django.contrib.auth.models.User`` models that have had
+the `username` field removed.
 
 Installation
 ------------
