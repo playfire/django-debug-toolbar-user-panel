@@ -1,0 +1,161 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>django-debug-toolbar-user-panel &mdash; django-debug-toolbar-user-panel documentation</title>
+    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="django-debug-toolbar-user-panel documentation" href="#" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="#">django-debug-toolbar-user-panel documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <span class="target" id="module-debug_toolbar_user_panel.panels"></span><div class="section" id="django-debug-toolbar-user-panel">
+<h1><tt class="xref py py-mod docutils literal"><span class="pre">django-debug-toolbar-user-panel</span></tt><a class="headerlink" href="#django-debug-toolbar-user-panel" title="Permalink to this headline">¶</a></h1>
+<p>Panel for the <a class="reference external" href="https://github.com/django-debug-toolbar/django-debug-toolbar">Django Debug Toolbar</a>
+to easily and quickly switch between users.</p>
+<blockquote>
+<div><ul class="simple">
+<li>View details on the currently logged in user.</li>
+<li>Login as any user from an arbitrary email address, username or user ID.</li>
+<li>Easily switch between recently logged in users.</li>
+</ul>
+</div></blockquote>
+<div align="center" class="figure">
+<img alt="_images/screenshot.png" src="_images/screenshot.png" />
+</div>
+<p>The panel supports <tt class="docutils literal"><span class="pre">django.contrib.auth.models.User</span></tt> models that have had
+the <cite>username</cite> field removed.</p>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>Add <tt class="docutils literal"><span class="pre">debug_toolbar_user_panel</span></tt> to your <tt class="docutils literal"><span class="pre">INSTALLED_APPS</span></tt>:</p>
+<div class="highlight-python"><pre>INSTALLED_APPS = (
+    ...
+    'debug_toolbar_user_panel',
+    ...
+)</pre>
+</div>
+<p>Add <tt class="docutils literal"><span class="pre">debug_toolbar_user_panel.panels.UserPanel</span></tt> to <tt class="docutils literal"><span class="pre">DEBUG_TOOLBAR_PANELS</span></tt>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">DEBUG_TOOLBAR_PANELS</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="s">&#39;debug_toolbar_user_panel.panels.UserPanel&#39;</span>
+    <span class="s">&#39;debug_toolbar.panels.version.VersionDebugPanel&#39;</span><span class="p">,</span>
+    <span class="s">&#39;debug_toolbar.panels.timer.TimerDebugPanel&#39;</span><span class="p">,</span>
+    <span class="s">&#39;debug_toolbar.panels.settings_vars.SettingsVarsDebugPanel&#39;</span><span class="p">,</span>
+    <span class="s">&#39;debug_toolbar.panels.headers.HeaderDebugPanel&#39;</span><span class="p">,</span>
+    <span class="s">&#39;debug_toolbar.panels.request_vars.RequestVarsDebugPanel&#39;</span><span class="p">,</span>
+    <span class="s">&#39;debug_toolbar.panels.sql.SQLDebugPanel&#39;</span><span class="p">,</span>
+    <span class="s">&#39;debug_toolbar.panels.template.TemplateDebugPanel&#39;</span><span class="p">,</span>
+    <span class="s">&#39;debug_toolbar.panels.signals.SignalDebugPanel&#39;</span><span class="p">,</span>
+    <span class="s">&#39;debug_toolbar.panels.logger.LoggingPanel&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Include <tt class="docutils literal"><span class="pre">debug_toolbar_user_panel.urls</span></tt> somewhere in your <tt class="docutils literal"><span class="pre">urls.py</span></tt>:</p>
+<div class="highlight-python"><pre>urlpatterns = patterns('',
+    ...
+    url(r'', include('debug_toolbar_user_panel.urls')),
+    ...
+)</pre>
+</div>
+</div>
+<div class="section" id="links">
+<h2>Links<a class="headerlink" href="#links" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>View/download code</dt>
+<dd><a class="reference external" href="https://github.com/playfire/django-debug-toolbar-user-panel">https://github.com/playfire/django-debug-toolbar-user-panel</a></dd>
+<dt>File a bug</dt>
+<dd><a class="reference external" href="https://github.com/playfire/django-debug-toolbar-user-panel/issues">https://github.com/playfire/django-debug-toolbar-user-panel/issues</a></dd>
+</dl>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="#">
+              <img class="logo" src="_static/playfire.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="#">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#"><tt class="docutils literal"><span class="pre">django-debug-toolbar-user-panel</span></tt></a><ul>
+<li><a class="reference internal" href="#installation">Installation</a></li>
+<li><a class="reference internal" href="#links">Links</a></li>
+</ul>
+</li>
+</ul>
+
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/index.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="#">django-debug-toolbar-user-panel documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, 2011 UUMC Ltd..
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>
