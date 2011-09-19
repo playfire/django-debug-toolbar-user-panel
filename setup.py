@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-from setuptools import setup, find_packages
+from distutils.core import setup
 
 setup(
     name='django-debug-toolbar-user-panel',
@@ -13,7 +13,9 @@ setup(
     author_email='tech@playfire.com',
     license='BSD',
 
-    packages=find_packages(),
+    packages=(
+        'debug_toolbar_user_panel',
+    ),
     package_data={'': [
         'templates/debug_toolbar_user_panel/*',
     ]},
