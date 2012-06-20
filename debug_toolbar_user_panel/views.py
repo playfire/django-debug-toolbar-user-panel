@@ -8,7 +8,9 @@ from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
 
 from .forms import UserForm
+from .decorators import debug_required
 
+@debug_required
 def content(request):
     current = []
 
@@ -29,6 +31,7 @@ def content(request):
 
 @csrf_exempt
 @require_POST
+@debug_required
 def login_form(request):
     form = UserForm(request.POST)
 
@@ -39,6 +42,7 @@ def login_form(request):
 
 @csrf_exempt
 @require_POST
+@debug_required
 def login(request, **kwargs):
     user = get_object_or_404(User, **kwargs)
 
