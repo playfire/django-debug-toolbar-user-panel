@@ -33,3 +33,9 @@
   {{ form.as_p }}
   <button type="submit">Login</button>
 </form>
+
+<br>
+
+<form method="POST" action="{% url "debug-userpanel-logout" %}">
+  <button type="submit">Logout</button>
+</form>

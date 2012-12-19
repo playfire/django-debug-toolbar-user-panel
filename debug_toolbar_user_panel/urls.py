@@ -9,4 +9,6 @@ urlpatterns = patterns('debug_toolbar_user_panel.views',
         name='debug-userpanel-login-form'),
     url(r'^%s/users/login/(?P<pk>-?\d+)$' % _PREFIX, 'login',
         name='debug-userpanel-login'),
+    url(r'^%s/users/logout$' % _PREFIX, 'logout',
+        name='debug-userpanel-logout'),
 )
