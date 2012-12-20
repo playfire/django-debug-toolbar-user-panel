@@ -2,7 +2,7 @@
 
 <h4>Current user</h4>
 
-{% if request.user.is_authenticated %}
+{% if user.is_authenticated %}
   <table>
     <tr>{% for x,y in current %}<th>{{ x }}</th>{% endfor %}</tr>
     <tr>{% for x,y in current %}<td>{{ y }}</td>{% endfor %}</tr>
