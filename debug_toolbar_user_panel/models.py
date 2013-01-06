@@ -1,6 +1,9 @@
 import debug_toolbar.urls
 
-from django.conf.urls.defaults import patterns, include
+try:
+    from django.conf.urls import patterns, include
+except ImportError:
+    from django.conf.urls.defaults import patterns, include
 
 from .urls import urlpatterns
 
